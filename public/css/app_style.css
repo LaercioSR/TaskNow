@@ -3,6 +3,10 @@
     width: 15%;
 }
 
+#image-logo {
+    image: url("../imagens/logo3.png");
+}
+
 #navbar-tasknow {
     background-color: #FF8B00!important;
 }
@@ -18,4 +22,19 @@
 
 .card-tasknow {
     background-color: #FF9415!important;
+    color: white;
+}
+
+.navbar-padrao {
+    font-size: 120%;
+    font-weight: bold;
+    color: white!important;
+}
+
+.navbar-padrao:hover {
+    color: #E8650C!important;
+}
+
+#texto-linha {
+    display: inline;
 }
