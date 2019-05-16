@@ -22,6 +22,7 @@ class CreateTarefasTable extends Migration
             $table->string('descricao');
             $table->boolean('status');
             $table->date('data_conclusao');
+            $table->foreign('id_usuario')->references('id')->on('users');
             $table->foreign('id_tipo')->references('id')->on('tipo_tarefas');
             $table->timestamps();
         });

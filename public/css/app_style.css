@@ -1,0 +1,21 @@
+#img-logo {
+    height: 15%;
+    width: 15%;
+}
+
+#navbar-tasknow {
+    background-color: #FF8B00!important;
+}
+
+.button-link {
+    font-size: 125%;
+    color: white!important;
+}
+
+.button-link:hover {
+    color: #E8650C!important;
+}
+
+.card-tasknow {
+    background-color: #FF9415!important;
+}

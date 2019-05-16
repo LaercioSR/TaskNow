@@ -17,6 +17,7 @@ class CreateTipoTarefasTable extends Migration
             $table->bigIncrements('id');
             $table->string('descricao');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
