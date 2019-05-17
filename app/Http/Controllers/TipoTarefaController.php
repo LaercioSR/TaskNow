@@ -77,8 +77,9 @@ class TipoTarefaController extends Controller
      * @param  \App\TipoTarefa  $tipoTarefa
      * @return \Illuminate\Http\Response
      */
-    public function edit(TipoTarefa $tipoTarefa)
+    public function edit($id)
     {
+        $tipoTarefa = TipoTarefa::findOrFail($id);
         return view('editarTipoTarefa', compact('tipoTarefa'));
     }
 
@@ -89,8 +90,10 @@ class TipoTarefaController extends Controller
      * @param  \App\TipoTarefa  $tipoTarefa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TipoTarefa $tipoTarefa)
+    public function update(Request $request, $id)
     {
+        $tipoTarefa = TipoTarefa::findOrFail($id);
+
         $tipoTarefa->descricao = $request->input("descricao");
         $tipoTarefa->save();
 
@@ -103,8 +106,11 @@ class TipoTarefaController extends Controller
      * @param  \App\TipoTarefa  $tipoTarefa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TipoTarefa $tipoTarefa)
+    public function destroy($id)
     {
-        //
+        $tipoTarefa = TipoTarefa::findOrFail($id);
+        $tipoTarefa->delete();
+
+        return redirect()->route('tipotarefa.index');
     }
 }

@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Criar Tipo de Tarefa')
+@section('title', 'Editar Tipo de Tarefa')
 
 @section('content')
     <div class="container content-tasknow">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <form action = "{{route('tipotarefa.update', $tipoTarefa)}}" method = "POST">
+                <form action = "{{route('tipotarefa.update', $tipoTarefa->id)}}" method = "POST">
                     @csrf
                     @method('PUT')
                     <div class = "form-group">

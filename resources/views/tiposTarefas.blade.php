@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Tipos de Tarefaa')
+@section('title', 'Tipos de Tarefas')
 
 @section('content')
     <div class="container content-tasknow">
@@ -8,12 +8,11 @@
             <div class="col-md-8">
 
 
-                <table class="table table-striped table-bordered table-light">
+                <table class="table table-striped table-light">
                     <thead class="thead-light">
                     <tr>
                         <th scope="col">id</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Ações</th>
+                        <th scope="col" colspan="2">Nome</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -22,11 +21,11 @@
                             <td>{{$tipoTarefa->id}}</td>
                             <td>{{$tipoTarefa->descricao}}</td>
                             <td>
-                                <form action = "{{route('tipotarefa.destroy', $tipoTarefa)}}" method = "POST">
+                                <form action = "{{route('tipotarefa.destroy', $tipoTarefa->id)}}" method = "POST">
                                     @csrf
-                                    <a class = "btn btn-success" href="{{route('tipotarefa.edit', $tipoTarefa)}}">Editar</a>
+                                    <a class = "btn" href="{{route('tipotarefa.edit', $tipoTarefa->id)}}"><img src="{{ asset('imagens/edit.png') }}"></a>
                                     @method('DELETE')
-                                    <button type = "submit" class = "btn btn-danger">Excluir</button>
+                                    <button type = "submit" class = "btn btn-link"><img src="{{ asset('imagens/delete.png') }}"></button>
                                 </form>
                             </td>
                         </tr>
@@ -38,4 +37,6 @@
             </div>
         </div>
     </div>
+
+    <a class = "btn" href="{{route('tipotarefa.create')}}"><img src="{{ asset('imagens/mais.png') }}" class="button-mais"/></a>
 @endsection

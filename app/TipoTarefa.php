@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class TipoTarefa extends Model
 {
     use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
 }
