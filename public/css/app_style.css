@@ -38,3 +38,27 @@
 #texto-linha {
     display: inline;
 }
+
+.content-tasknow {
+    margin-top: 50px;
+}
+
+.centralizar {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.descricao {
+    font-size: 20px;
+}
+
+.pos-titulo {
+    margin-top: 25px;
+}
+
+.titulo-texto {
+    font-size: 25px;
+    font-weight: bold;
+}

@@ -15,7 +15,9 @@ class CreateTipoTarefasTable extends Migration
     {
         Schema::create('tipo_tarefas', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('id_usuario');
             $table->string('descricao');
+            $table->foreign('id_usuario')->references('id')->on('users');
             $table->timestamps();
             $table->softDeletes();
         });

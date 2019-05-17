@@ -4,9 +4,16 @@ namespace App\Http\Controllers;
 
 use App\TipoTarefa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TipoTarefaController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +21,17 @@ class TipoTarefaController extends Controller
      */
     public function index()
     {
-        //
+        $tiposTarefas = TipoTarefa::all();
+        $tiposTarefasUser = [];
+        //dd($tiposTarefas);
+
+        foreach($tiposTarefas as $tipoTarefa) {
+            if($tipoTarefa->id_usuario == Auth::user()->id) {
+                $tiposTarefasUser[] = $tipoTarefa;
+            }
+        }
+
+        return view('tiposTarefas', compact('tiposTarefasUser'));
     }
 
     /**
@@ -24,7 +41,7 @@ class TipoTarefaController extends Controller
      */
     public function create()
     {
-        //
+        return view('criarTipoTarefa');
     }
 
     /**
@@ -35,7 +52,12 @@ class TipoTarefaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tipoTarefa = new TipoTarefa();
+        $tipoTarefa->id_usuario = Auth::user()->id;
+        $tipoTarefa->descricao = $request->input("descricao");
+        $tipoTarefa->save();
+
+        return redirect()->route('tipotarefa.index');
     }
 
     /**
@@ -57,7 +79,7 @@ class TipoTarefaController extends Controller
      */
     public function edit(TipoTarefa $tipoTarefa)
     {
-        //
+        return view('editarTipoTarefa', compact('tipoTarefa'));
     }
 
     /**
@@ -69,7 +91,10 @@ class TipoTarefaController extends Controller
      */
     public function update(Request $request, TipoTarefa $tipoTarefa)
     {
-        //
+        $tipoTarefa->descricao = $request->input("descricao");
+        $tipoTarefa->save();
+
+        return redirect()->route('tipotarefa.index');
     }
 
     /**

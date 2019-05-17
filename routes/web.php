@@ -18,3 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('tipotarefa', 'TipoTarefaController');
+Route::resource('usuario', 'UserController');
+Route::resource('tarefas', 'TarefaController');
