@@ -16,6 +16,7 @@
                         <label for="descricao" class="pos-titulo descricao">Nome: </label>
                         <input type = "text" class = "form-control" id="nome" name="descricao" value="{{$tipoTarefa->descricao}}">
                         <br>
+                        <br>
                         <button class = "btn btn-primary centralizar" type = "submit">Salvar</button>
                     </div>
                 </form>

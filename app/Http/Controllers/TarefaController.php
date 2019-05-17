@@ -22,7 +22,16 @@ class TarefaController extends Controller
      */
     public function index()
     {
-        //
+        $tarefas = Tarefa::all();
+        $tarefasUser = [];
+
+        foreach($tarefas as $tarefa) {
+            if($tarefa->id_usuario == Auth::user()->id && $tarefa->status == 0) {
+                $tarefasUser[] = $tarefa;
+            }
+        }
+
+        return view('home', compact('tarefasUser'));
     }
 
     /**
@@ -105,8 +114,18 @@ class TarefaController extends Controller
      * @param  \App\Tarefa  $tarefa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tarefa $tarefa)
+    public function destroy($id)
     {
-        //
+        $tarefa = Tarefa::findOrFail($id);
+        $tarefa->delete();
+
+        return redirect('/');
+    }
+
+    public function concluir($id) {
+        $tarefa = Tarefa::findOrFail($id);
+        $tarefa->marcarComoConcluida();
+
+        return redirect('/');
     }
 }

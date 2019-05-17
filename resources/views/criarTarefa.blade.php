@@ -18,7 +18,7 @@
                     </div>
 
                     <div class="form-row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-8">
                             <label for="tipoTarefa">Tipo de Tarefa</label>
                             <select id="tipoTarefa" class="form-control" name="tipoTarefa" required>
                                 @foreach($tiposTarefasUser as $tipoTarefa)
@@ -27,10 +27,7 @@
                             </select>
                         </div>
 
-                        <div class = "form-group col-md-3">
-                            <label for="dataconclusao">Data de Conclusão</label>
-                            <input type = "date" class = "form-control" id="dataconclusao" name="dataconclusao" required>
-                        </div>
+                        <div class="form-group col-md-1"></div>
 
                         <div class="form-group col-md-3">
                             <label for="privacidade">Privacidade</label><br/>

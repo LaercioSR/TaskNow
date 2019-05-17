@@ -65,9 +65,9 @@ class TipoTarefaController extends Controller
      * @param  \App\TipoTarefa  $tipoTarefa
      * @return \Illuminate\Http\Response
      */
-    public function show(TipoTarefa $tipoTarefa)
+    public function show($id)
     {
-        //
+        $tipoTarefa = TipoTarefa::findOrFail($id);
     }
 
     /**

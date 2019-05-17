@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return redirect("/home");
+    return redirect()->route('tarefa.index');
 });
 
 Auth::routes();
@@ -21,3 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('tipotarefa', 'TipoTarefaController');
 Route::resource('usuario', 'UserController');
 Route::resource('tarefa', 'TarefaController');
+Route::get('/tarefa/{tarefa}/concluir', 'TarefaController@concluir');

@@ -118,3 +118,7 @@ textarea {
     width: 35%;
     height: 35%;
 }
+
+.label-descricao {
+    font-weight: bold;
+}

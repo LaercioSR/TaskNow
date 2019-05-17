@@ -6,6 +6,7 @@
     <div class="container content-tasknow">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                <h1>Tipos de Tarefas</h1>
 
 
                 <table class="table table-striped table-light">

@@ -19,9 +19,9 @@ class CreateTarefasTable extends Migration
             $table->unsignedBigInteger('id_tipo');
             $table->string('titulo');
             $table->boolean('privacidade');
-            $table->string('descricao')->nullable();
+            $table->string('descricao', 450)->nullable();
             $table->boolean('status');
-            $table->date('data_conclusao');
+            $table->dateTime('data_conclusao')->nullable();
             $table->foreign('id_usuario')->references('id')->on('users');
             $table->foreign('id_tipo')->references('id')->on('tipo_tarefas');
             $table->timestamps();
