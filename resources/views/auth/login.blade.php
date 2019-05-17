@@ -4,6 +4,8 @@
 
 @section('content')
 <div class="container">
+    <img src="{{ asset('imagens/logo.png') }}" class="rounded mx-auto d-block img-fluid" id="img-icon"/>
+    <br/>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

@@ -109,3 +109,12 @@
     background: #4CAF50;
     cursor: pointer;
 }
+
+textarea {
+    resize: none;
+}
+
+#img-icon {
+    width: 35%;
+    height: 35%;
+}

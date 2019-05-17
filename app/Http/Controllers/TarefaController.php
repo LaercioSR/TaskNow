@@ -52,7 +52,17 @@ class TarefaController extends Controller
      */
     public function store(Request $request)
     {
+        $tarefa = new Tarefa();
+        $tarefa->id_usuario = Auth::user()->id;
+        $tarefa->id_tipo = $request->input('tipoTarefa');
+        $tarefa->titulo = $request->input('titulo');
+        $tarefa->privacidade = $request->input('privacidade');
+        $tarefa->descricao = $request->input('descricao');
+        $tarefa->status = 0;
+        $tarefa->data_conclusao = $request->input('dataconclusao');
+        $tarefa->save();
 
+        return redirect("/");
     }
 
     /**
