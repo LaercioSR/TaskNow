@@ -42,7 +42,7 @@
                                 <p id="texto-linha">Tarefas</p>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Nova Tarefa</a>
+                                <a class="dropdown-item" href="{{ route('tarefa.create') }}">Nova Tarefa</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">

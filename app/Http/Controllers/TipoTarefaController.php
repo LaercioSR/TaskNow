@@ -23,7 +23,6 @@ class TipoTarefaController extends Controller
     {
         $tiposTarefas = TipoTarefa::all();
         $tiposTarefasUser = [];
-        //dd($tiposTarefas);
 
         foreach($tiposTarefas as $tipoTarefa) {
             if($tipoTarefa->id_usuario == Auth::user()->id) {

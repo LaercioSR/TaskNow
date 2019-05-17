@@ -3,6 +3,34 @@
 @section('title', 'Registrar')
 
 @section('content')
+
+
+    <script type="text/javascript">
+        /* Máscaras ER */
+        function mascara(o,f){
+            v_obj=o
+            v_fun=f
+            setTimeout("execmascara()",1)
+        }
+        function execmascara(){
+            v_obj.value=v_fun(v_obj.value)
+        }
+        function mtel(v){
+            v=v.replace(/\D/g,""); //Remove tudo o que não é dígito
+            v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+            v=v.replace(/(\d)(\d{4})$/,"$1-$2"); //Coloca hífen entre o quarto e o quinto dígitos
+            return v;
+        }
+        function id( el ){
+            return document.getElementById( el );
+        }
+        window.onload = function(){
+            id('telefone').onkeyup = function(){
+                mascara( this, mtel );
+            }
+        }
+    </script>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -59,7 +87,7 @@
                             <label for="datanascimento" class="col-md-4 col-form-label text-md-right">{{ __('Data de Nascimento') }}</label>
 
                             <div class="col-md-6">
-                                <input id="datanascimento" type="text" class="form-control" name="datanascimento" value="{{ old('datanascimento') }}" required autocomplete="datanascimento" >
+                                <input id="datanascimento" type="date" class="form-control" name="datanascimento" value="{{ old('datanascimento') }}" required autocomplete="datanascimento" >
                             </div>
                         </div>
 
@@ -67,7 +95,7 @@
                             <label for="telefone" class="col-md-4 col-form-label text-md-right">{{ __('Telefone') }}</label>
 
                             <div class="col-md-6">
-                                <input id="telefone" type="text" class="form-control" name="telefone" value="{{ old('telefone') }}" required autocomplete="telefone">
+                                <input id="telefone" type="text" class="form-control" name="telefone" value="{{ old('telefone') }}" required autocomplete="telefone" maxlength="15" >
                             </div>
                         </div>
 

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Tarefa;
+use App\TipoTarefa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TarefaController extends Controller
 {
@@ -30,7 +32,16 @@ class TarefaController extends Controller
      */
     public function create()
     {
-        //
+        $tiposTarefas = TipoTarefa::all();
+        $tiposTarefasUser = [];
+
+        foreach($tiposTarefas as $tipoTarefa) {
+            if($tipoTarefa->id_usuario == Auth::user()->id) {
+                $tiposTarefasUser[] = $tipoTarefa;
+            }
+        }
+
+        return view('criarTarefa', compact('tiposTarefasUser'));
     }
 
     /**
@@ -41,7 +52,7 @@ class TarefaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**

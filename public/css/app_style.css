@@ -75,3 +75,37 @@
     height: 70px;
     width: 70px;
 }
+
+.color-tasknow {
+    color: #FF8B00;
+}
+
+.range-tasknow {
+    -webkit-appearance: none;
+    height: 10px;
+    width: 30px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.range-tasknow::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #FF8B00;
+    cursor: pointer;
+}
+
+.range-tasknow::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}

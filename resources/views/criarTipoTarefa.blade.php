@@ -10,7 +10,7 @@
                     @csrf
                     <div class = "form-group">
                         <div class="titulo centralizar">
-                            <p class="titulo-texto">Cadastro de Tipo de Categoria</p>
+                            <p class="titulo-texto">Cadastro de Tipo de Tarefa</p>
                         </div>
                         <label for="descricao" class="pos-titulo descricao">Nome: </label>
                         <input type = "text" class = "form-control" id="nome" name="descricao">
