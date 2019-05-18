@@ -34,6 +34,21 @@ class TarefaController extends Controller
         return view('home', compact('tarefasUser'));
     }
 
+    public function tarefasConcluidas()
+    {
+        $tarefas = Tarefa::all();
+        $tarefasUser = [];
+
+        foreach($tarefas as $tarefa) {
+            if($tarefa->id_usuario == Auth::user()->id && $tarefa->status == 1) {
+                $tarefasUser[] = $tarefa;
+            }
+        }
+
+        //return redirect('/');
+        return view('tarefasConcluidas', compact('tarefasUser'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -102,7 +117,10 @@ class TarefaController extends Controller
             }
         }
 
-        return view('editarTarefa', compact('tarefa'), compact('tiposTarefasUser'));
+        if($tarefa->status == 0) {
+            return view('editarTarefa', compact('tarefa'), compact('tiposTarefasUser'));
+        }
+        return view('editarTarefaConcluida', compact('tarefa'), compact('tiposTarefasUser'));
     }
 
     /**
@@ -118,6 +136,9 @@ class TarefaController extends Controller
         $tarefa->titulo = $request->input('titulo');
         $tarefa->privacidade = $request->input('privacidade');
         $tarefa->descricao = $request->input('descricao');
+        if($tarefa->status == 1) {
+            $tarefa->status = $request->input('status');
+        }
         $tarefa->save();
 
         return redirect("/");

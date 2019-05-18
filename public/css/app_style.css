@@ -110,6 +110,10 @@
     cursor: pointer;
 }
 
+.range-tasknow::-webkit-slider-thumb:hover {
+    background: #E8650C;
+}
+
 textarea {
     resize: none;
 }
@@ -121,4 +125,13 @@ textarea {
 
 .label-descricao {
     font-weight: bold;
+}
+
+.btn-tasknow {
+    background-color: #FF8B00;
+    color: white;
+}
+
+.btn-tasknow:hover {
+    background-color: #E8650C;
 }

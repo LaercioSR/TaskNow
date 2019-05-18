@@ -23,7 +23,7 @@
                         <br/>
                         <br/>
                         <label for="titulo" class="pos-titulo">Título</label>
-                        <input type = "text" class = "form-control" id="titulo" name="titulo" required>
+                        <input type = "text" class = "form-control" id="titulo" name="titulo" maxlength="30" required>
                     </div>
 
                     <div class="form-row">
@@ -53,7 +53,7 @@
                     </div>
 
                     <br/>
-                    <button class = "btn btn-primary centralizar" type = "submit">Cadastrar</button>
+                    <button class = "btn btn-tasknow centralizar" type = "submit">Cadastrar</button>
                 </form>
             </div>
         </div>

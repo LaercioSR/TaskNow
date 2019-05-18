@@ -22,10 +22,10 @@
                         <br/>
                         <br/>
                         <label for="descricao" class="pos-titulo descricao">Nome: </label>
-                        <input type = "text" class = "form-control" id="nome" name="descricao">
+                        <input type = "text" class = "form-control" id="nome" name="descricao" maxlength="30" required>
                         <br>
                         <br>
-                        <button class = "btn btn-primary centralizar" type = "submit">Cadastrar</button>
+                        <button class = "btn btn-tasknow centralizar" type = "submit">Cadastrar</button>
                     </div>
                 </form>
             </div>

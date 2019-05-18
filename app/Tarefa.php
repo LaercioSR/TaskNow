@@ -23,4 +23,8 @@ class Tarefa extends Model
 
         $this->save();
     }
+
+    public function dataConclusao() {
+        return Carbon::parse($this->data_conclusao)->locale('pt_BR')->isoFormat('LLLL');
+    }
 }

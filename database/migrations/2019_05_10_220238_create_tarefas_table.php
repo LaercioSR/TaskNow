@@ -17,7 +17,7 @@ class CreateTarefasTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('id_usuario');
             $table->unsignedBigInteger('id_tipo');
-            $table->string('titulo');
+            $table->string('titulo', 30);
             $table->boolean('privacidade');
             $table->string('descricao', 450)->nullable();
             $table->boolean('status');

@@ -18,6 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/tarefa/concluidas', 'TarefaController@tarefasConcluidas');
 Route::resource('tipotarefa', 'TipoTarefaController');
 Route::resource('usuario', 'UserController');
 Route::resource('tarefa', 'TarefaController');

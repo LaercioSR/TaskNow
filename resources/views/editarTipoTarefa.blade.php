@@ -19,7 +19,7 @@
                         <input type = "text" class = "form-control" id="nome" name="descricao" value="{{$tipoTarefa->descricao}}">
                         <br>
                         <br>
-                        <button class = "btn btn-primary centralizar" type = "submit">Salvar</button>
+                        <button class = "btn btn-tasknow centralizar" type = "submit">Salvar</button>
                     </div>
                 </form>
             </div>

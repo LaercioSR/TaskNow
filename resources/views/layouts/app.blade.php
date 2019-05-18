@@ -43,7 +43,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('tarefa.create') }}">Nova Tarefa</a>
-                                <a class="dropdown-item" href="#">Tarefas Concluídas</a>
+                                <a class="dropdown-item" href="{{ url('/tarefa/concluidas') }}">Tarefas Concluídas</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -51,8 +51,8 @@
                                 <p id="texto-linha">Tipos de Tarefas</p>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('tipotarefa.index') }}">Listar Tipos de Tarefas</a>
                                 <a class="dropdown-item" href="{{ route('tipotarefa.create') }}">Novo Tipo de Tarefa</a>
+                                <a class="dropdown-item" href="{{ route('tipotarefa.index') }}">Listar Tipos de Tarefas</a>
                             </div>
                         </li>
                         <li class="nav-item">

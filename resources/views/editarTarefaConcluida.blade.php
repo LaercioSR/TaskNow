@@ -24,7 +24,7 @@
                     </div>
 
                     <div class="form-row">
-                        <div class="form-group col-md-8">
+                        <div class="form-group col-md-6">
                             <label for="tipoTarefa">Tipo de Tarefa</label>
                             <select id="tipoTarefa" class="form-control" name="tipoTarefa" required>
                                 @foreach($tiposTarefasUser as $tipoTarefa)
@@ -37,13 +37,20 @@
                             </select>
                         </div>
 
-                        <div class="form-group col-md-1"></div>
+
 
                         <div class="form-group col-md-3">
                             <label for="privacidade">Privacidade</label><br/>
                             <label for="privacidade">público</label>
                             <input type="range" class="range-tasknow" min=0 max=1 id="privacidade" name="privacidade" value="{{ $tarefa->privacidade }}">
                             <label for="privacidade">privado</label>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="status">Status</label><br/>
+                            <label for="status">pendente</label>
+                            <input type="range" class="range-tasknow" min=0 max=1 id="status" name="status" value="{{ $tarefa->status }}">
+                            <label for="status">concluído</label>
                         </div>
                     </div>
 

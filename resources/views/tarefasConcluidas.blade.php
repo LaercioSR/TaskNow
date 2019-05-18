@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-@section('title', 'Página Inicial')
+@section('title', 'Tarefas Concluídas')
 
 @section('content')
     <script>
         @foreach($tarefasUser as $tarefa)
-            function trocaCheckIn{{ $tarefa->id }}() {
-                document.getElementById("image-check{{ $tarefa->id }}").src = "{{ asset('imagens/checked.png') }}";
-            }
+        function trocaCheckIn{{ $tarefa->id }}() {
+            document.getElementById("image-check{{ $tarefa->id }}").src = "{{ asset('imagens/checked.png') }}";
+        }
 
-            function trocaCheck{{ $tarefa->id }}() {
-                document.getElementById("image-check{{ $tarefa->id }}").src = "{{ asset('imagens/check_box.png') }}";
-            }
+        function trocaCheck{{ $tarefa->id }}() {
+            document.getElementById("image-check{{ $tarefa->id }}").src = "{{ asset('imagens/check_box.png') }}";
+        }
         @endforeach
     </script>
     <div class="container content-tasknow">
@@ -19,48 +19,43 @@
             <div class="col-md-8">
                 <br/>
                 <br/>
-                <h1>Tarefas Pendentes</h1>
+                <h1>Tarefas Concluídas</h1>
 
                 <table class="table table-light">
                     <thead class="thead-light">
                     <tr>
 
-                        <th scope="col" colspan="3">Tarefa</th>
+                        <th scope="col" colspan="2">Tarefa</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($tarefasUser as $tarefa)
                         <tr>
                             <td>
-                                <a href="/tarefa/{{ $tarefa->id }}/concluir">
-                                    <button class="btn btn-link">
-                                        <img src="{{ asset('imagens/check_box.png') }}" id="image-check{{ $tarefa->id }}" onmouseover="trocaCheckIn{{ $tarefa->id }}()" onmouseout="trocaCheck{{ $tarefa->id }}()">
-                                    </button>
-                                </a>
-                            </td>
-
-                            <td>
                                 <form>
                                     <div class="row">
                                         <label class="label-descricao col-md-1" for="titulo">Título: </label>
-                                        <p id="titulo" class="col-md-11">{{ $tarefa->titulo }}</p>
+                                        <p id="titulo" class="col-md-4">{{ $tarefa->titulo }}</p>
+                                        <label class="label-descricao col-md-2" for="concluido">Concluido: </label>
+                                        <p id="concluido" class="col-md-5">{{ $tarefa->dataConclusao()}}</p>
                                     </div>
 
                                     <div class="row">
                                         <label class="label-descricao col-md-1" for="tipo">Tipo: </label>
-                                        <p id="tipo" class="col-md-5">{{ $tarefa->buscarTipo() }}</p>
+                                        <p id="tipo" class="col-md-4">{{ $tarefa->buscarTipo() }}</p>
 
                                         <label class="label-descricao col-md-2" for="privacidade">Privacidade: </label>
                                         @if($tarefa->privacidade == 0)
-                                            <p id="privacidade" class="col-md-4">Público</p>
+                                            <p id="privacidade" class="col-md-5">Público</p>
                                         @else
-                                            <p id="privacidade" class="col-md-4">Privado</p>
+                                            <p id="privacidade" class="col-md-5">Privado</p>
                                         @endif
                                     </div>
 
+                                    <label class="label-descricao" for="descricao">Descrição: </label>
                                     <div class="row">
-                                        <label class="label-descricao" for="descricao">Descrição: </label>
-                                        <textarea id="descricao" class = "form-control" rows="5" cols="90" readonly>{{ $tarefa->descricao }}</textarea>
+                                        <div class="col-md-1"></div>
+                                        <textarea id="descricao" class = "form-control col-md-11" rows="5" cols="90" readonly>{{ $tarefa->descricao }}</textarea>
                                     </div>
                                 </form>
                             </td>
@@ -81,6 +76,4 @@
             </div>
         </div>
     </div>
-
-    <a class = "btn" href="{{route('tarefa.create')}}"><img src="{{ asset('imagens/mais.png') }}" class="button-mais"/></a>
 @endsection
