@@ -68,7 +68,6 @@ class TarefaController extends Controller
         $tarefa->privacidade = $request->input('privacidade');
         $tarefa->descricao = $request->input('descricao');
         $tarefa->status = 0;
-        $tarefa->data_conclusao = $request->input('dataconclusao');
         $tarefa->save();
 
         return redirect("/");
@@ -91,9 +90,19 @@ class TarefaController extends Controller
      * @param  \App\Tarefa  $tarefa
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tarefa $tarefa)
+    public function edit($id)
     {
-        //
+        $tarefa = Tarefa::findOrFail($id);
+        $tiposTarefas = TipoTarefa::all();
+        $tiposTarefasUser = [];
+
+        foreach($tiposTarefas as $tipoTarefa) {
+            if($tipoTarefa->id_usuario == Auth::user()->id) {
+                $tiposTarefasUser[] = $tipoTarefa;
+            }
+        }
+
+        return view('editarTarefa', compact('tarefa'), compact('tiposTarefasUser'));
     }
 
     /**
@@ -105,7 +114,13 @@ class TarefaController extends Controller
      */
     public function update(Request $request, Tarefa $tarefa)
     {
-        //
+        $tarefa->id_tipo = $request->input('tipoTarefa');
+        $tarefa->titulo = $request->input('titulo');
+        $tarefa->privacidade = $request->input('privacidade');
+        $tarefa->descricao = $request->input('descricao');
+        $tarefa->save();
+
+        return redirect("/");
     }
 
     /**

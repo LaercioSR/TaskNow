@@ -10,9 +10,18 @@
                 <form action = "{{route('tarefa.store')}}" method = "POST" class="" id="form-tarefa">
                     @csrf
                     <div class="titulo centralizar">
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
                         <p class="titulo-texto">Cadastro de Tarefa</p>
                     </div>
                     <div class = "form-group">
+                        <br/>
+                        <br/>
+                        <br/>
                         <label for="titulo" class="pos-titulo">Título</label>
                         <input type = "text" class = "form-control" id="titulo" name="titulo" required>
                     </div>

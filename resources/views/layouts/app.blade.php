@@ -22,7 +22,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm " id="navbar-tasknow">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top" id="navbar-tasknow">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('imagens/logo3.png') }}" width="120" height="50" alt="">

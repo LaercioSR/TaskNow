@@ -11,6 +11,8 @@
                     @method('PUT')
                     <div class = "form-group">
                         <div class="titulo centralizar">
+                            <br/>
+                            <br/>
                             <p class="titulo-texto">Editar Tipo de Categoria</p>
                         </div>
                         <label for="descricao" class="pos-titulo descricao">Nome: </label>
