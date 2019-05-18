@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Tarefa extends Model
 {
     public function buscarTipo() {
-        $tipoTarefa = TipoTarefa::findOrFail($this->id_tipo);
+        //$tipoTarefa = TipoTarefa::findOrFail($this->id_tipo);
+        $tipoTarefa = TipoTarefa::withTrashed()->where('id', $this->id_tipo)->get()[0];
+
         return $tipoTarefa->descricao;
     }
 

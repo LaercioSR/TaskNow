@@ -51,8 +51,8 @@
                                 <p id="texto-linha">Tipos de Tarefas</p>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('tipotarefa.create') }}">Novo Tipo de Tarefa</a>
                                 <a class="dropdown-item" href="{{ route('tipotarefa.index') }}">Listar Tipos de Tarefas</a>
+                                <a class="dropdown-item" href="{{ route('tipotarefa.create') }}">Novo Tipo de Tarefa</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -89,7 +89,7 @@
                                     <p id="texto-linha">{{ Auth::user()->nome }}</p><span class="caret"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Configurações de Conta</a>
+                                    <a class="dropdown-item" href="{{ url('/usuario/configuracoes') }}">Configurações de Conta</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Tarefa;
+use App\TipoTarefa;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -61,9 +64,10 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit()
     {
-        //
+        $usuario = Auth::user();
+        return view('configuracaoConta', compact('usuario'));
     }
 
     /**
@@ -73,9 +77,16 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request)
     {
-        //
+        $usuario = Auth::user();
+        $usuario->nome = $request->input('nome');
+        $usuario->sexo = $request->input('sexo');
+        $usuario->data_nascimento = $request->input('datanascimento');
+        $usuario->telefone = $request->input('telefone');
+        $usuario->save();
+
+        return redirect('/usuario/configuracoes');
     }
 
     /**
@@ -84,8 +95,35 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy()
     {
-        //
+        $usuario = Auth::user();
+        $tarefas = Tarefa::all();
+
+        foreach($tarefas as $tarefa) {
+            if($tarefa->id_usuario == $usuario->id) {
+                $tarefa->delete();
+            }
+        }
+
+        $tipoTarefas = TipoTarefa::all();
+
+        foreach($tipoTarefas as $tipoTarefa) {
+            if($tipoTarefa->id_usuario == $usuario->id) {
+                $tipoTarefa->forceDelete();
+            }
+        }
+
+        $tipoTarefasDeletada = TipoTarefa::onlyTrashed()->get();
+
+        foreach($tipoTarefasDeletada as $tipoTarefaDeletada) {
+            if($tipoTarefaDeletada->id_usuario == $usuario->id) {
+                $tipoTarefaDeletada->forceDelete();
+            }
+        }
+
+        $usuario->delete();
+
+        return redirect('/');
     }
 }

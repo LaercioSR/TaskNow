@@ -12,16 +12,16 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $date = new DateTime('1999-08-18');
+        $date = new DateTime('2000-01-01');
 
         DB::table('users')->insert([
-            'nome' => "Laercio",
+            'nome' => "Teste",
             'sexo' => 0,
             'data_nascimento' => $date,
-            'telefone' => "(75) 98150-4615",
-            'login' => "LaercioSR",
-            'email' => "laercio.rios13@hotmail.com",
-            'password' => Hash::make("laercior13"),
+            'telefone' => "(00) 00000-0000",
+            'login' => "Teste",
+            'email' => "teste@teste.com",
+            'password' => Hash::make("teste123"),
         ]);
     }
 }
