@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Tarefas Concluídas')
+@section('title', $usuario->nome)
 
 @section('content')
     <div class="container content-tasknow">

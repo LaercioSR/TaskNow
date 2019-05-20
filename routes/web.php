@@ -23,6 +23,8 @@ Route::get('/tarefa/listapublica', 'TarefaController@tarefasPublicas');
 Route::get('/tarefa/{tarefa}/copiar', 'TarefaController@copiarTarefa');
 Route::get('/usuario/configuracoes', 'UserController@edit');
 Route::put('/usuario', 'UserController@update');
+Route::get('/usuario/mudarsenha', 'UserController@telaMudarSenha');
+Route::put('/usuario/mudarsenha', 'UserController@mudarSenha');
 Route::delete('/usuario', 'UserController@destroy');
 Route::get('/usuario/{usuario}/', 'UserController@show');
 Route::resource('tipotarefa', 'TipoTarefaController');

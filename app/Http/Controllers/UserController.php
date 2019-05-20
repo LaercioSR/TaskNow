@@ -136,4 +136,18 @@ class UserController extends Controller
 
         return redirect('/');
     }
+
+    public function telaMudarSenha() {
+        return view('mudarSenha');
+    }
+
+    public function mudarSenha(Request $request) {
+        $usuario = Auth::user();
+
+        if($request->senha == $request->senhaconfirmada) {
+
+        }
+    }
+
+
 }

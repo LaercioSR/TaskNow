@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Tarefas Concluídas')
+@section('title', 'Tarefas Públicas')
 
 @section('content')
     <div class="container content-tasknow">
