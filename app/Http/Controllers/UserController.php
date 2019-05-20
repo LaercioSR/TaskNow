@@ -7,6 +7,8 @@ use App\TipoTarefa;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -142,12 +144,19 @@ class UserController extends Controller
     }
 
     public function mudarSenha(Request $request) {
+        $messages = [
+            'confirmed' => 'Senhas não são iguais',
+        ];
+
+        $validator = Validator::make($request->all(), [
+            'password' => 'required|confirmed',
+        ], $messages)->validate();
+
         $usuario = Auth::user();
 
-        if($request->senha == $request->senhaconfirmada) {
+        $usuario->password = Hash::make($request->input('password'));
+        $usuario->save();
 
-        }
+        return redirect('/usuario/configuracoes');
     }
-
-
 }

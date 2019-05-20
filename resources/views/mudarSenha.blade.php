@@ -18,26 +18,22 @@
                             @csrf
                             @method('PUT')
                             <div class="form-group row">
-                                <label for="senhaatual" class="col-md-4 col-form-label text-md-right">{{ __('Senha Atual') }}</label>
+                                <label for="password" class="col-md-4 col-form-label text-md-right @error('password') is-invalid @enderror">{{ __('Senha') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="senhaatual" type="password" class="form-control" name="senhaatual" required autofocus>
+                                    <input id="password" type="password" class="form-control" name="password" required>
+
+                                    @error('password')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="senha" class="col-md-4 col-form-label text-md-right">{{ __('Senha') }}</label>
+                                <label for="passwordconfirmed" class="col-md-4 col-form-label text-md-right">{{ __('Confirmar Senha') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="senha" type="password" class="form-control" name="senha" required>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="senhaconfirmada" class="col-md-4 col-form-label text-md-right">{{ __('Confirmar Senha') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="senhaconfirmada" type="password" class="form-control" name="senhaconfirmada" required>
+                                    <input id="passwordconfirmed" type="password" class="form-control" name="password_confirmation" required>
                                 </div>
                             </div>
 

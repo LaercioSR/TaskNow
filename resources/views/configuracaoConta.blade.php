@@ -66,6 +66,9 @@
                     <br/>
                     <br/>
                     <br/>
+                    <a class = "btn btn-tasknow centralizar" href="/usuario/mudarsenha">Mudar Senha</a>
+                    <br/>
+                    <br/>
                     <form action = "{{ url('/usuario') }}" method = "POST">
                         @csrf
                         @method('DELETE')
