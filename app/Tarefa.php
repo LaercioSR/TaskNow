@@ -15,7 +15,7 @@ class Tarefa extends Model
     }
 
     public function buscarUsuario() {
-        $usuario = Usuario::findOrFail($this->id_usuario);
+        $usuario = User::findOrFail($this->id_usuario);
         return $usuario->nome;
     }
 

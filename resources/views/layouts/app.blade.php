@@ -44,6 +44,7 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('tarefa.create') }}">Nova Tarefa</a>
                                 <a class="dropdown-item" href="{{ url('/tarefa/concluidas') }}">Tarefas Concluídas</a>
+                                <a class="dropdown-item" href="{{ url('/tarefa/listapublica') }}">Tarefas Públicas</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -54,9 +55,6 @@
                                 <a class="dropdown-item" href="{{ route('tipotarefa.index') }}">Listar Tipos de Tarefas</a>
                                 <a class="dropdown-item" href="{{ route('tipotarefa.create') }}">Novo Tipo de Tarefa</a>
                             </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link navbar-padrao" href="#">Usuários</a>
                         </li>
                         @endguest
                     </ul>

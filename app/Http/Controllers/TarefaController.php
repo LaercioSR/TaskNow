@@ -49,6 +49,21 @@ class TarefaController extends Controller
         return view('tarefasConcluidas', compact('tarefasUser'));
     }
 
+    public function tarefasPublicas()
+    {
+        $tarefas = Tarefa::all();
+        $tarefasPublicas = [];
+
+        foreach($tarefas as $tarefa) {
+            if($tarefa->id_usuario != Auth::user()->id && $tarefa->privacidade == 0) {
+                $tarefasPublicas[] = $tarefa;
+            }
+        }
+
+        //return redirect('/');
+        return view('tarefasPublicas', compact('tarefasPublicas'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -163,5 +178,26 @@ class TarefaController extends Controller
         $tarefa->marcarComoConcluida();
 
         return redirect('/');
+    }
+
+    public function copiarTarefa($id) {
+        $tarefaCopiada = Tarefa::findOrFail($id);
+        $tipoTarefaCopiada = TipoTarefa::findOrFail($tarefaCopiada->id_tipo);
+
+        $tipoTarefa = TipoTarefa::create([
+            'id_usuario' => Auth::user()->id,
+            'descricao' => $tipoTarefaCopiada->descricao,
+        ]);
+
+        $tarefa = new Tarefa();
+        $tarefa->id_usuario = Auth::user()->id;
+        $tarefa->id_tipo = $tipoTarefa->id;
+        $tarefa->titulo = $tarefaCopiada->titulo;
+        $tarefa->privacidade = 0;
+        $tarefa->descricao = $tarefaCopiada->descricao;
+        $tarefa->status = 0;
+        $tarefa->save();
+
+        return redirect('/tarefa/listapublica');
     }
 }

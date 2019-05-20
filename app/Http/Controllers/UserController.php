@@ -53,9 +53,19 @@ class UserController extends Controller
      * @param  \App\User  $User
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
-        //
+        $usuario = User::findOrFail($id);
+        $tarefas = Tarefa::all();
+        $tarefasPublicasUser = [];
+
+        foreach($tarefas as $tarefa) {
+            if($tarefa->id_usuario == $usuario->id && $tarefa->privacidade == 0) {
+                $tarefasPublicasUser[] = $tarefa;
+            }
+        }
+
+        return view('exibirUsuario', compact('usuario'), compact('tarefasPublicasUser'));
     }
 
     /**

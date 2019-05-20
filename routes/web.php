@@ -19,9 +19,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/tarefa/concluidas', 'TarefaController@tarefasConcluidas');
+Route::get('/tarefa/listapublica', 'TarefaController@tarefasPublicas');
+Route::get('/tarefa/{tarefa}/copiar', 'TarefaController@copiarTarefa');
 Route::get('/usuario/configuracoes', 'UserController@edit');
 Route::put('/usuario', 'UserController@update');
 Route::delete('/usuario', 'UserController@destroy');
+Route::get('/usuario/{usuario}/', 'UserController@show');
 Route::resource('tipotarefa', 'TipoTarefaController');
 Route::resource('tarefa', 'TarefaController');
 Route::get('/tarefa/{tarefa}/concluir', 'TarefaController@concluir');

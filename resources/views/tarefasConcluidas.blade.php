@@ -36,7 +36,7 @@
                                     <div class="row">
                                         <label class="label-descricao col-md-1" for="titulo">Título: </label>
                                         <p id="titulo" class="col-md-4">{{ $tarefa->titulo }}</p>
-                                        <label class="label-descricao col-md-2" for="concluido">Concluido: </label>
+                                        <label class="label-descricao col-md-2" for="concluido">Concluído: </label>
                                         <p id="concluido" class="col-md-5">{{ $tarefa->dataConclusao()}}</p>
                                     </div>
 
