@@ -18,39 +18,45 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($tarefasPublicas as $tarefa)
+                    @if(count($tarefasPublicas) == 0)
                         <tr>
-                            <form>
-                                <td>
-                                    <div class="row">
-                                        <label class="label-descricao col-md-1" for="titulo">Título: </label>
-                                        <p id="titulo" class="col-md-5">{{ $tarefa->titulo }}</p>
-                                        <label class="label-descricao col-md-1" for="tipo">Tipo: </label>
-                                        <p id="tipo" class="col-md-5">{{ $tarefa->buscarTipo() }}</p>
-                                    </div>
-
-                                    <label class="label-descricao " for="descricao">Descrição: </label>
-                                    <div class="row">
-                                        <div class="col-md-1"></div>
-                                        <textarea id="descricao" class = "form-control col-md-11" rows="5" cols="90" readonly>{{ $tarefa->descricao }}</textarea>
-                                    </div>
-
-                                    <div class="row">
-                                        <br/>
-                                    </div>
-                                    <div class="row">
-                                        <label class="label-descricao col-md-2" for="usuario">Usuário: </label>
-                                        <a class="badge badge-light" href="/usuario/{{ $tarefa->id_usuario }}"><p id="usuario" class="col-md-10">{{ $tarefa->buscarUsuario() }}</p></a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <a class="btn btn-link"href="/tarefa/{{ $tarefa->id }}/copiar">
-                                        <img src="{{ asset('imagens/copy.png') }}">
-                                    </a>
-                                </td>
-                            </form>
+                            <td>Não existe taferas públicas</td>
                         </tr>
-                    @endforeach
+                    @else
+                        @foreach($tarefasPublicas as $tarefa)
+                            <tr>
+                                <form>
+                                    <td>
+                                        <div class="row">
+                                            <label class="label-descricao col-md-1" for="titulo">Título: </label>
+                                            <p id="titulo" class="col-md-5">{{ $tarefa->titulo }}</p>
+                                            <label class="label-descricao col-md-1" for="tipo">Tipo: </label>
+                                            <p id="tipo" class="col-md-5">{{ $tarefa->buscarTipo() }}</p>
+                                        </div>
+
+                                        <label class="label-descricao " for="descricao">Descrição: </label>
+                                        <div class="row">
+                                            <div class="col-md-1"></div>
+                                            <textarea id="descricao" class = "form-control col-md-11" rows="5" cols="90" readonly>{{ $tarefa->descricao }}</textarea>
+                                        </div>
+
+                                        <div class="row">
+                                            <br/>
+                                        </div>
+                                        <div class="row">
+                                            <label class="label-descricao col-md-2" for="usuario">Usuário: </label>
+                                            <a class="badge badge-light" href="/usuario/{{ $tarefa->id_usuario }}"><p id="usuario" class="col-md-10">{{ $tarefa->buscarUsuario() }}</p></a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-link"href="/tarefa/{{ $tarefa->id }}/copiar">
+                                            <img src="{{ asset('imagens/copy.png') }}" title="Copiar Tarefa">
+                                        </a>
+                                    </td>
+                                </form>
+                            </tr>
+                        @endforeach
+                    @endif
                     </tbody>
                 </table>
 
