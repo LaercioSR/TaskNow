@@ -134,6 +134,7 @@ textarea {
 
 .btn-tasknow:hover {
     background-color: #E8650C;
+    color: white;
 }
 
 .btn-tasknowdelete {

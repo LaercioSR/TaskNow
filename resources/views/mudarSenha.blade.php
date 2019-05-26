@@ -24,7 +24,7 @@
                                     <input id="password" type="password" class="form-control" name="password" required>
 
                                     @error('password')
-                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        <div class=" alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>

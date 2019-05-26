@@ -69,11 +69,33 @@
                     <a class = "btn btn-tasknow centralizar" href="/usuario/mudarsenha">Mudar Senha</a>
                     <br/>
                     <br/>
-                    <form action = "{{ url('/usuario') }}" method = "POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type = "submit" class = "btn btn-tasknowdelete centralizar">Excluir Conta</button>
-                    </form>
+
+                    <button type="button" class="btn btn-tasknowdelete centralizar" data-toggle="modal" data-target="#exampleModalCenter">
+                        Excluir Conta
+                    </button>
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Excluir conta</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Ao excluir sua conta você perderá todos os seus dados salvos
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                    <form action = "{{ url('/usuario') }}" method = "POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type = "submit" class="btn btn-light">Excluir</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
